@@ -24,6 +24,7 @@ namespace AspNetCoreMiddleware
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            Extensions.Configure(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +36,7 @@ namespace AspNetCoreMiddleware
             }
 
             app.UseMvc();
+            app.UseAuthentication();
         }
     }
 }
